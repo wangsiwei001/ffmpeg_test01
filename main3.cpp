@@ -140,7 +140,6 @@ int h264_mp4toannexb(AVFormatContext *fmt_ctx, AVPacket *in, FILE *dst_fd)
     int ret = 0, i;
 
     out = av_packet_alloc();
-
     buf      = in->data;
     buf_size = in->size;
     buf_end  = in->data + in->size;
@@ -252,11 +251,11 @@ int h264_mp4toannexb(AVFormatContext *fmt_ctx, AVPacket *in, FILE *dst_fd)
 
     return ret;
 }
-/**
- * 抽取视频数据
- **/
+
 int main()
-{
+{   /**
+     * 抽取视频数据
+     **/
     int err_code;
     char errors[1024];
 
@@ -280,7 +279,7 @@ int main()
     av_log(nullptr,AV_LOG_INFO,"请输入目标路径:\n");
     cin>>dst_filename;
     if (src_filename.empty()||dst_filename.empty()){
-        av_log(nullptr,AV_LOG_INFO,"源地址或目标地址为空\n");
+        av_log(nullptr,AV_LOG_ERROR,"源地址或目标地址为空\n");
     }
 
 
@@ -296,7 +295,7 @@ int main()
     /*open input media file, and allocate format context*/
     if((err_code = avformat_open_input(&fmt_ctx, src_filename.data(), NULL, NULL)) < 0){
         av_strerror(err_code, errors, 1024);
-        av_log(NULL, AV_LOG_DEBUG, "Could not open source file: %s, %d(%s)\n",
+        av_log(NULL, AV_LOG_ERROR, "Could not open source file: %s, %d(%s)\n",
                src_filename.data(),
                err_code,
                errors);
