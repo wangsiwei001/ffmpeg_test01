@@ -5,15 +5,15 @@
 #include <iostream>
 using namespace std;
 int main(){
-    char aa = '1112';
+    char aa = '1';
     char *cc = &aa;
     int a = 0;
     int b = 2;
     int c = 0;
     for (int i = 0; i < 4; ++i) {
-//        a = (a << 8)| cc[i];
-        cout << cc[i] << endl;
-//        cout << a << endl;
+        a = (a << 8)| cc [i];
+//        cout << cc[i] << endl;
+        cout << a << endl;
     }
     return 0;
 }

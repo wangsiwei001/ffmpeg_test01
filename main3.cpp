@@ -274,10 +274,12 @@ int main()
 
     av_log_set_level(AV_LOG_DEBUG);
     string src_filename,dst_filename;
-    av_log(nullptr,AV_LOG_INFO,"请输入源路径:\n");
-    cin>>src_filename;
-    av_log(nullptr,AV_LOG_INFO,"请输入目标路径:\n");
-    cin>>dst_filename;
+//    av_log(nullptr,AV_LOG_INFO,"请输入源路径:\n");
+//    cin>>src_filename;
+//    av_log(nullptr,AV_LOG_INFO,"请输入目标路径:\n");
+//    cin>>dst_filename;
+    src_filename = "./test.mp4";
+    dst_filename = "./test01.mp4";
     if (src_filename.empty()||dst_filename.empty()){
         av_log(nullptr,AV_LOG_ERROR,"源地址或目标地址为空\n");
     }
