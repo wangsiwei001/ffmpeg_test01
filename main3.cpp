@@ -327,7 +327,6 @@ int main()
         exit(1);
     }
     */
-
     /*read frames from media file*/
     while(av_read_frame(fmt_ctx, &pkt) >=0 ){
         if(pkt.stream_index == video_stream_index){

@@ -1,19 +1,16 @@
-//
-// Created by 10593 on 2022/10/18.
-//
-#include "string"
 #include <iostream>
+#include "string"
+#include <stdio.h>
+extern "C"{
+#include "libavcodec/avcodec.h"
+#include "libavformat/avformat.h"
+#include "libavutil/time.h"
+#include "libswscale/swscale.h"
+#include <libavutil/avutil.h>
+}
 using namespace std;
 int main(){
-    char aa = '1';
-    char *cc = &aa;
-    int a = 0;
-    int b = 2;
-    int c = 0;
-    for (int i = 0; i < 4; ++i) {
-        a = (a << 8)| cc [i];
-//        cout << cc[i] << endl;
-        cout << a << endl;
-    }
-    return 0;
+    AVFormatContext* srcFmtCtx = nullptr, * dstFmtCtx = nullptr;
+    AVPacket *avPacket = av_packet_alloc();
+    string src,drc;
 }
